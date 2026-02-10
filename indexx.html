@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aryan Patil | Data Engineer</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/feather-icons"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        :root {
+            --bg-beige: #E8E4D9;    
+            --text-brown: #2C1A11;  
+            --accent-brown: #8B5A2B;
+            --glass-border: rgba(44, 26, 17, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-beige);
+            color: var(--text-brown);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            /* Scroll Snap */
+            scroll-snap-type: y mandatory;
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-behavior: smooth;
+        }
+
+        /* --- NAVIGATION --- */
+        .nav-wrapper {
+            position: fixed;
+            top: 25px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        nav {
+            background: rgba(232, 228, 217, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            padding: 15px 40px;
+            border-radius: 50px;
+            display: flex;
+            gap: 30px;
+            box-shadow: 0 10px 30px rgba(44, 26, 17, 0.08);
+        }
+
+        nav a {
+            color: var(--text-brown);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: opacity 0.3s;
+        }
+        nav a:hover { opacity: 0.6; }
+
+        /* --- SECTIONS --- */
+        section {
+            height: 100vh;
+            width: 100vw;
+            scroll-snap-align: start;
+            padding: 0 8%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            border-bottom: 1px solid rgba(44, 26, 17, 0.05);
+        }
+
+        /* --- HERO --- */
+        .hero { text-align: center; overflow: hidden; }
+        .hero-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1470115636492-6d2b56f9146d?q=80&w=2670&auto=format&fit=crop');
+            background-size: cover; background-position: center; z-index: -2;
+            filter: sepia(0.6) contrast(0.85);
+            transform: scale(1.1); /* Slight zoom for parallax */
+        }
+        .hero-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(232, 228, 217, 0.8); z-index: -1;
+        }
+        .quote-text {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 6vw, 5.5rem); /* Bigger Text */
+            line-height: 1.1;
+            font-style: italic;
+            margin-bottom: 30px;
+            color: var(--text-brown);
+        }
+        .quote-author {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            text-transform: uppercase;
+            color: var(--accent-brown);
+            letter-spacing: 3px;
+            font-weight: 700;
+        }
+
+        /* --- PROJECTS --- */
+        .project-split {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr; /* More space for image */
+            gap: 80px;
+            align-items: center;
+            height: 80%;
+        }
+        .p-number { font-family: 'JetBrains Mono'; color: var(--accent-brown); display: block; margin-bottom: 20px; font-size: 1rem; }
+        .p-title { font-family: 'Playfair Display', serif; font-size: 4rem; margin-bottom: 30px; line-height: 1; }
+        .p-desc { font-size: 1.25rem; line-height: 1.6; margin-bottom: 40px; color: rgba(44, 26, 17, 0.9); max-width: 500px; }
+        
+        .btn-link {
+            text-decoration: none;
+            color: var(--text-brown);
+            border: 1px solid var(--text-brown);
+            padding: 15px 35px;
+            font-family: 'JetBrains Mono';
+            font-size: 0.9rem;
+            transition: 0.3s;
+            display: inline-block;
+        }
+        .btn-link:hover { background: var(--text-brown); color: var(--bg-beige); }
+
+        .project-img-container {
+            height: 100%;
+            max-height: 70vh;
+            border-radius: 20px; /* Softer corners */
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(44, 26, 17, 0.25);
+            position: relative;
+        }
+        .project-img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; }
+        .project-img-container:hover img { transform: scale(1.05); }
+
+        /* --- SKILLS (Fixed Empty Look) --- */
+        .skills-section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 Columns for fuller look */
+            gap: 30px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .skill-item {
+            border: 1px solid rgba(44, 26, 17, 0.15);
+            padding: 40px; /* Bigger padding */
+            background: rgba(255, 255, 255, 0.4);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .skill-item:hover { 
+            background: var(--text-brown); 
+            color: var(--bg-beige); 
+            border-color: var(--text-brown);
+            transform: translateY(-5px);
+        }
+        /* Make the "Languages" card span full width to break grid monotony */
+        .skill-item:first-child { grid-column: span 2; } 
+
+        .skill-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--accent-brown);
+            padding-bottom: 10px;
+            display: inline-block;
+            width: fit-content;
+        }
+        .skill-list {
+            font-family: 'JetBrains Mono';
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        /* --- TIMELINE --- */
+        .timeline-container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            width: 100%; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 20px;
+        }
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 150px 1fr auto;
+            align-items: center;
+            padding: 40px; /* Bigger padding */
+            border: 1px solid rgba(44, 26, 17, 0.1);
+            background: rgba(255,255,255,0.3);
+            transition: 0.3s;
+        }
+        .timeline-item:hover {
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transform: scale(1.02);
+        }
+        .t-year { font-family: 'JetBrains Mono'; color: var(--accent-brown); font-size: 1.1rem; }
+        .t-role { font-weight: 600; font-size: 1.8rem; font-family: 'Playfair Display', serif;}
+        .t-org { opacity: 0.7; font-size: 1.1rem; font-family: 'JetBrains Mono'; text-align: right; }
+        
+        /* Wrapper for Right Side Info */
+        .t-details {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .t-loc {
+            font-family: 'JetBrains Mono';
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* --- ABOUT ME --- */
+        .about-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        .about-text { font-size: 1.6rem; line-height: 1.6; margin-bottom: 40px; max-width: 800px; }
+        
+        .badges { margin-bottom: 40px; }
+        .status-badge {
+            display: inline-block;
+            border: 1px solid var(--accent-brown);
+            color: var(--accent-brown);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-family: 'JetBrains Mono';
+            font-size: 0.9rem;
+            margin: 0 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Massive Connect Buttons */
+        .connect-grid { 
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            width: 100%;
+            margin-top: 40px;
+        }
+        
+        .connect-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+            background: var(--text-brown);
+            color: var(--bg-beige);
+            text-decoration: none;
+            transition: 0.3s;
+            border: 1px solid transparent;
+        }
+        .connect-card:hover {
+            background: transparent;
+            color: var(--text-brown);
+            border-color: var(--text-brown);
+        }
+        .connect-icon { margin-bottom: 15px; }
+        .connect-label { font-family: 'Playfair Display', serif; font-size: 1.5rem; }
+
+        /* Mobile */
+        @media (max-width: 1024px) {
+            .project-split { grid-template-columns: 1fr; text-align: center; gap: 30px; }
+            .project-img-container { order: -1; max-height: 40vh; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .skill-item:first-child { grid-column: span 1; }
+            .connect-grid { grid-template-columns: 1fr; }
+            .timeline-item { grid-template-columns: 1fr; text-align: center; gap: 15px; }
+            .t-details { text-align: center; }
+            .t-org { text-align: center; }
+            .quote-text { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav-wrapper">
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#p1">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#timeline">Timeline</a>
+            <a href="#about">About Me</a>
+        </nav>
+    </div>
+
+    <section id="home" class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="content-wrapper gs-reveal">
+            <h1 class="quote-text">
+                "Preoccupied with a <br>single leaf... <br>you won't see the tree."
+            </h1>
+            <p class="quote-author">— VAGABOND (MIYAMOTO MUSASHI)</p>
+        </div>
+    </section>
+
+    <section id="p1">
+        <div class="project-split">
+            <div class="gs-reveal-left">
+                <span class="p-number">01 / SELECTED WORK</span>
+                <h2 class="p-title">The Quant's<br>Cockpit</h2>
+                <p class="p-desc">A portfolio optimization engine designed for high-frequency strategy analysis. Built with a robust Python backend and Streamlit frontend.</p>
+                <a href="https://github.com/AryanPatill" target="_blank" class="btn-link">View Repository</a>
+            </div>
+            <div class="project-img-container gs-reveal-right">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop" alt="Financial Dashboard">
+            </div>
+        </div>
+    </section>
+
+    <section id="p2">
+        <div class="project-split">
+            <div class="gs-reveal-left">
+                <span class="p-number">02 / SELECTED WORK</span>
+                <h2 class="p-title">NewsAI<br>Bot</h2>
+                <p class="p-desc">Autonomous NLP pipeline. Scrapes 1000+ global articles daily, performs sentiment analysis using Transformer models, and triggers alerts.</p>
+                <a href="https://github.com/AryanPatill" target="_blank" class="btn-link">View Repository</a>
+            </div>
+            <div class="project-img-container gs-reveal-right">
+                <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=2670&auto=format&fit=crop" alt="AI Network">
+            </div>
+        </div>
+    </section>
+
+    <section id="p3">
+        <div class="project-split">
+            <div class="gs-reveal-left">
+                <span class="p-number">03 / SELECTED WORK</span>
+                <h2 class="p-title">F1 Race<br>Predictor</h2>
+                <p class="p-desc">Where passion meets precision. An ML model trained on telemetry data to predict race outcomes and tire degradation strategies.</p>
+                <a href="https://github.com/AryanPatill" target="_blank" class="btn-link">View Repository</a>
+            </div>
+            <div class="project-img-container gs-reveal-right">
+                <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=2670&auto=format&fit=crop" alt="F1 Racing">
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills-section">
+        <h2 class="p-title gs-reveal" style="text-align: center; margin-bottom: 60px;">Technical Arsenal</h2>
+        <div class="skills-grid">
+            
+            <div class="skill-item gs-reveal">
+                <div class="skill-title">Languages</div>
+                <div class="skill-list">Python (Advanced), SQL, Java, C++, R, JavaScript</div>
+            </div>
+
+            <div class="skill-item gs-reveal">
+                <div class="skill-title">GenAI & NLP</div>
+                <div class="skill-list">LLMs (Llama, GPT-4), RAG Pipelines, LangChain, Hugging Face</div>
+            </div>
+
+            <div class="skill-item gs-reveal">
+                <div class="skill-title">Machine Learning</div>
+                <div class="skill-list">PyTorch, TensorFlow, Scikit-learn, XGBoost, Random Forest</div>
+            </div>
+
+            <div class="skill-item gs-reveal">
+                <div class="skill-title">MLOps & Cloud</div>
+                <div class="skill-list">Docker, AWS (EC2, S3, Lambda), GCP, Git/GitHub</div>
+            </div>
+
+            <div class="skill-item gs-reveal">
+                <div class="skill-title">Tools</div>
+                <div class="skill-list">Streamlit, Flask, Tableau, Power BI, MongoDB, MySQL</div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="timeline">
+        <h2 class="p-title gs-reveal" style="text-align: center; margin-bottom: 60px;">The Path</h2>
+        <div class="timeline-container">
+            
+            <div class="timeline-item gs-reveal">
+                <span class="t-year">SUMMER 2026</span>
+                <span class="t-role">Seeking Internship / Co-op</span>
+                <div class="t-details">
+                    <span class="t-org">Available</span>
+                    <span class="t-loc">Anywhere</span>
+                </div>
+            </div>
+
+            <div class="timeline-item gs-reveal">
+                <span class="t-year">2025 - PRES</span>
+                <span class="t-role">Master's in Data Science</span>
+                <div class="t-details">
+                    <span class="t-org">Rochester Institute of Technology</span>
+                    <span class="t-loc">Rochester, NY</span>
+                </div>
+            </div>
+
+            <div class="timeline-item gs-reveal">
+                <span class="t-year">2022 - 2025</span>
+                <span class="t-role">Bachelors in AI & Data Science</span>
+                <div class="t-details">
+                    <span class="t-org">New Horizon Institute of Technology</span>
+                    <span class="t-loc">Thane, India</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="about-wrapper">
+            <h2 class="p-title gs-reveal" style="font-size: 5rem;">About Me</h2>
+            
+            <div class="badges gs-reveal">
+                <span class="status-badge">F-1 Visa Status</span>
+                <span class="status-badge">Class of 2027</span>
+            </div>
+
+            <p class="about-text gs-reveal">
+                I am a Data Science Master's student at RIT bridging the gap between raw data and actionable strategy. 
+                My passion lies in <strong>Data Engineering</strong>—building the robust pipelines and architectures that make advanced analytics possible.
+            </p>
+
+            <div class="connect-grid gs-reveal">
+                <a href="mailto:aryannpatill18@gmail.com" class="connect-card">
+                    <i data-feather="mail" class="connect-icon" size="32"></i>
+                    <span class="connect-label">Email Me</span>
+                </a>
+                <a href="https://www.linkedin.com/in/aryanpatil18/" target="_blank" class="connect-card">
+                    <i data-feather="linkedin" class="connect-icon" size="32"></i>
+                    <span class="connect-label">LinkedIn</span>
+                </a>
+                <a href="https://github.com/AryanPatill" target="_blank" class="connect-card">
+                    <i data-feather="github" class="connect-icon" size="32"></i>
+                    <span class="connect-label">GitHub</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Initialize Icons
+        feather.replace();
+
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // General Fade Up
+        document.querySelectorAll('.gs-reveal').forEach(el => {
+            gsap.fromTo(el, 
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1, 
+                    y: 0, 
+                    duration: 1, 
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 85%", // Triggers when top of element hits 85% down viewport
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+        });
+
+        // Left Slide
+        document.querySelectorAll('.gs-reveal-left').forEach(el => {
+            gsap.fromTo(el, 
+                { opacity: 0, x: -50 },
+                {
+                    opacity: 1, 
+                    x: 0, 
+                    duration: 1, 
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 80%",
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+        });
+
+        // Right Slide
+        document.querySelectorAll('.gs-reveal-right').forEach(el => {
+            gsap.fromTo(el, 
+                { opacity: 0, x: 50 },
+                {
+                    opacity: 1, 
+                    x: 0, 
+                    duration: 1, 
+                    scrollTrigger: {
+                        trigger: el,
+                        start: "top 80%",
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+        });
+    </script>
+</body>
+</html>
