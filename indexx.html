@@ -197,46 +197,82 @@
         }
 
         /* --- TIMELINE --- */
+/* --- TIMELINE FIX --- */
         .timeline-container { 
-            max-width: 900px; 
+            max-width: 1000px; 
             margin: 0 auto; 
             width: 100%; 
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            gap: 0; /* Remove gap, let borders handle separation */
+        }
+        
+        .timeline-item {
+            display: flex; /* Changed from Grid to Flex for better control */
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 20px; 
+            border-bottom: 1px solid rgba(44, 26, 17, 0.15);
+            transition: 0.3s;
+            flex-wrap: wrap; /* Allows wrapping on small screens */
             gap: 20px;
         }
-        .timeline-item {
-            display: grid;
-            grid-template-columns: 150px 1fr auto;
-            align-items: center;
-            padding: 40px; /* Bigger padding */
-            border: 1px solid rgba(44, 26, 17, 0.1);
-            background: rgba(255,255,255,0.3);
-            transition: 0.3s;
-        }
+
         .timeline-item:hover {
-            background: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transform: scale(1.02);
+            background: rgba(255,255,255,0.4);
         }
-        .t-year { font-family: 'JetBrains Mono'; color: var(--accent-brown); font-size: 1.1rem; }
-        .t-role { font-weight: 600; font-size: 1.8rem; font-family: 'Playfair Display', serif;}
-        .t-org { opacity: 0.7; font-size: 1.1rem; font-family: 'JetBrains Mono'; text-align: right; }
+
+        /* Year - Fixed Width */
+        .t-year { 
+            font-family: 'JetBrains Mono'; 
+            color: var(--accent-brown); 
+            font-size: 1rem; 
+            width: 140px;
+            flex-shrink: 0;
+        }
+
+        /* Role - Takes available space */
+        .t-role { 
+            font-weight: 600; 
+            font-size: 1.6rem; 
+            font-family: 'Playfair Display', serif;
+            line-height: 1.1;
+            flex: 1; /* Grow to fill space */
+            min-width: 300px; /* Ensure it doesn't get too squished */
+        }
         
-        /* Wrapper for Right Side Info */
+        /* Details (Org + Loc) - Aligned Right */
         .t-details {
             text-align: right;
             display: flex;
             flex-direction: column;
             gap: 5px;
+            min-width: 250px; /* fixed minimum width for location info */
         }
+
+        .t-org { 
+            font-size: 1rem; 
+            font-family: 'Inter', sans-serif; 
+            font-weight: 600;
+            color: var(--text-brown);
+        }
+        
         .t-loc {
             font-family: 'JetBrains Mono';
             font-size: 0.85rem;
             opacity: 0.7;
         }
 
+        /* Mobile Adjustments for Timeline */
+        @media (max-width: 768px) {
+            .timeline-item { 
+                flex-direction: column; 
+                align-items: flex-start; 
+                text-align: left;
+            }
+            .t-details { text-align: left; margin-top: 10px; }
+            .t-year { margin-bottom: 5px; }
+        }
         /* --- ABOUT ME --- */
         .about-wrapper {
             max-width: 1000px;
@@ -403,7 +439,7 @@
         </div>
     </section>
 
-    <section id="timeline">
+   <section id="timeline">
         <h2 class="p-title gs-reveal" style="text-align: center; margin-bottom: 60px;">The Path</h2>
         <div class="timeline-container">
             
@@ -421,7 +457,7 @@
                 <span class="t-role">Master's in Data Science</span>
                 <div class="t-details">
                     <span class="t-org">Rochester Institute of Technology</span>
-                    <span class="t-loc">Rochester, NY</span>
+                    <span class="t-loc">Rochester, New York</span>
                 </div>
             </div>
 
