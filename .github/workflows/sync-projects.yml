@@ -1,0 +1,56 @@
+# Optional: build-time GitHub data instead of live browser fetches.
+# 1) Repo Settings → Pages → Source: "GitHub Actions"
+# 2) In index.html set CONFIG.source = 'static'
+# The site then reads ./projects.json and ./events.json written here, so visitors never hit the API rate limit.
+name: Sync projects and deploy
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 */6 * * *"   # every 6 hours
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch repos and public events
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_USER: AryanPatill
+        run: |
+          set -euo pipefail
+          api() { curl -fsSL -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" "$1"; }
+          api "https://api.github.com/users/$GH_USER/repos?per_page=100&sort=pushed" > projects.json
+          api "https://api.github.com/users/$GH_USER/events/public?per_page=30" > events.json || echo "[]" > events.json
+          # Refuse to deploy an empty list; the page would then use projects.fallback.json anyway.
+          test "$(jq 'length' projects.json)" -gt 0
+          # Refresh the bundled fallback snapshot too.
+          cp projects.json projects.fallback.json
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

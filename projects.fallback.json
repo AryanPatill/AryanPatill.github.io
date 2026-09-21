@@ -1,0 +1,282 @@
+[
+  {
+    "id": null,
+    "name": "ai-entry-level-jobs",
+    "full_name": "AryanPatill/ai-entry-level-jobs",
+    "owner": {
+      "login": "AryanPatill"
+    },
+    "html_url": "https://github.com/AryanPatill/ai-entry-level-jobs",
+    "description": null,
+    "fork": false,
+    "archived": false,
+    "homepage": null,
+    "language": "Python",
+    "stargazers_count": 0,
+    "pushed_at": "2026-09-21T05:42:24Z",
+    "topics": []
+  },
+  {
+    "id": null,
+    "name": "f1-stream",
+    "full_name": "AryanPatill/f1-stream",
+    "owner": {
+      "login": "AryanPatill"
+    },
+    "html_url": "https://github.com/AryanPatill/f1-stream",
+    "description": "Event-time stream processor for out-of-order F1 telemetry. Watermark-based windowing, late-data amendment, and checkpoint recovery verified against offline ground truth at 100% match vs 97.9% for arrival-order processing. Python, asyncio, Postgres, FastAPI.",
+    "fork": false,
+    "archived": false,
+    "homepage": null,
+    "language": "Python",
+    "stargazers_count": 0,
+    "pushed_at": "2026-09-08T04:28:49Z",
+    "topics": [
+      "asyncio",
+      "data-engineering",
+      "event-time",
+      "fastapi",
+      "formula1",
+      "postgresql",
+      "python",
+      "stream-processing",
+      "supabase",
+      "watermark"
+    ]
+  },
+  {
+    "id": null,
+    "name": "AryanPatill",
+    "full_name": "AryanPatill/AryanPatill",
+    "owner": {
+      "login": "AryanPatill"
+    },
+    "html_url": "https://github.com/AryanPatill/AryanPatill",
+    "description": null,
+    "fork": false,
+    "archived": false,
+    "homepage": null,
+    "language": null,
+    "stargazers_count": 0,
+    "pushed_at": "2026-08-30T16:50:15Z",
+    "topics": []
+  },
+  {
+    "id": null,
+    "name": "adaptiveml-monitor",
+    "full_name": "AryanPatill/adaptiveml-monitor",
+    "owner": {
+      "login": "AryanPatill"
+    },
+    "html_url": "https://github.com/AryanPatill/adaptiveml-monitor",
+    "description": null,
+    "fork": false,
+    "archived": false,
+    "homepage": null,
+    "language": null,
+    "stargazers_count": 0,
+    "pushed_at": "2026-04-27T04:49:06Z",
+    "topics": []
+  },
+  {
+    "id": null,
+    "name": "AryanPatill.github.io",
+    "full_name": "AryanPatill/AryanPatill.github.io",
+    "owner": {
+      "login": "AryanPatill"
+    },
+    "html_url": "https://github.com/AryanPatill/AryanPatill.github.io",
+    "description": null,
+    "fork": false,
+    "archived": false,
+    "homepage": null,
+    "language": "HTML",
+    "stargazers_count": 0,
+    "pushed_at": "2026-02-10T14:53:39Z",
+    "topics": []
+  },
+  {
+    "id": null,
+    "name": "The-Quants-Cockpit",
+    "full_name": "AryanPatill/The-Quants-Cockpit",
+    "owner": {
+      "login": "AryanPatill"
+    },
+    "html_url": "https://github.com/AryanPatill/The-Quants-Cockpit",
+    "description": "The Quant's Cockpit is an end-to-end financial analytics platform. It ingests real-time data into a SQL warehouse and uses Markowitz Optimization to recommend ideal asset allocations. Features include a 'Quant AI Analyst' for automated ratings and Monte Carlo simulations for risk forecasting. Built with Python, Streamlit, and SQL",
+    "fork": false,
+    "archived": false,
+    "homepage": null,
+    "language": "Python",
+    "stargazers_count": 0,
+    "pushed_at": "2026-02-03T01:31:30Z",
+    "topics": [
+      "algotrading",
+      "data-science",
+      "etl-pipeline",
+      "finance",
+      "fintech",
+      "investment-analysis",
+      "machine-learning",
+      "markowitz-optimization",
+      "monte-carlo-simulation",
+      "plotly",
+      "portfolio-optimization",
+      "python",
+      "quantitative-finance",
+      "sql",
+      "streamlit"
+    ]
+  },
+  {
+    "id": null,
+    "name": "credit_risk_dashboard",
+    "full_name": "AryanPatill/credit_risk_dashboard",
+    "owner": {
+      "login": "AryanPatill"
+    },
+    "html_url": "https://github.com/AryanPatill/credit_risk_dashboard",
+    "description": "Interactive ML Dashboard for Credit Risk Assessment using XGBoost & Streamlit",
+    "fork": false,
+    "archived": false,
+    "homepage": null,
+    "language": "Python",
+    "stargazers_count": 0,
+    "pushed_at": "2025-12-09T05:17:03Z",
+    "topics": []
+  },
+  {
+    "id": null,
+    "name": "F1-Race-Strategy-Simulator",
+    "full_name": "AryanPatill/F1-Race-Strategy-Simulator",
+    "owner": {
+      "login": "AryanPatill"
+    },
+    "html_url": "https://github.com/AryanPatill/F1-Race-Strategy-Simulator",
+    "description": "The F1 Race Strategy Simulator is a comprehensive web application that brings the strategic complexity of Formula 1 racing to life. Users can select from all 20 current F1 drivers, 10 teams, and 24 world circuits to create authentic racing scenarios with real-time telemetry data visualization.",
+    "fork": false,
+    "archived": false,
+    "homepage": null,
+    "language": "JavaScript",
+    "stargazers_count": 0,
+    "pushed_at": "2025-10-22T13:25:34Z",
+    "topics": []
+  },
+  {
+    "id": null,
+    "name": "NewsAI-Bot",
+    "full_name": "AryanPatill/NewsAI-Bot",
+    "owner": {
+      "login": "AryanPatill"
+    },
+    "html_url": "https://github.com/AryanPatill/NewsAI-Bot",
+    "description": "AI Daily News Summarizer Bot: Aggregate & summarize news from 15+ reputable sources (BBC, Reuters, CNN) with real-time AI, sentiment analysis & analytics dashboard. Built in modern JS, responsive UI, OpenAI/LangChain-ready. Showcase your AI/web/data skills. 🚀",
+    "fork": false,
+    "archived": false,
+    "homepage": null,
+    "language": "CSS",
+    "stargazers_count": 0,
+    "pushed_at": "2025-10-07T17:44:32Z",
+    "topics": []
+  },
+  {
+    "id": null,
+    "name": "Fuel-Efficiency-Prediction--Python",
+    "full_name": "AryanPatill/Fuel-Efficiency-Prediction--Python",
+    "owner": {
+      "login": "AryanPatill"
+    },
+    "html_url": "https://github.com/AryanPatill/Fuel-Efficiency-Prediction--Python",
+    "description": "This is a learning project for practice, using regression on the Auto MPG dataset to predict fuel efficiency. It involves building a Neural Network with RMSprop, MSE loss, data normalization, and early stopping to prevent overfitting. Key: normalize data, use MAE/MSE, optimize model.",
+    "fork": false,
+    "archived": false,
+    "homepage": null,
+    "language": "Jupyter Notebook",
+    "stargazers_count": 0,
+    "pushed_at": "2025-02-01T15:08:28Z",
+    "topics": [
+      "data-visualization",
+      "datapreprocessing",
+      "deep-learning",
+      "early-stopping",
+      "featurescaling",
+      "loss-functions",
+      "machine-learning",
+      "modelevaluation",
+      "neural-network",
+      "python3",
+      "regression"
+    ]
+  },
+  {
+    "id": null,
+    "name": "Car-Pooling-Web-APP",
+    "full_name": "AryanPatill/Car-Pooling-Web-APP",
+    "owner": {
+      "login": "AryanPatill"
+    },
+    "html_url": "https://github.com/AryanPatill/Car-Pooling-Web-APP",
+    "description": "The Carpooling Web App connects users on the same route for affordable and eco-friendly travel. Built with Django and Google Maps API, it offers route optimization, real-time suggestions, and fare estimation. Technologies used include Django, Google Maps API, Bootstrap, jQuery, and JavaScript.",
+    "fork": false,
+    "archived": false,
+    "homepage": null,
+    "language": "Python",
+    "stargazers_count": 0,
+    "pushed_at": "2024-12-20T07:18:20Z",
+    "topics": [
+      "api",
+      "css",
+      "django",
+      "html",
+      "javascript",
+      "maps",
+      "python3"
+    ]
+  },
+  {
+    "id": null,
+    "name": "Amazon-Review---Sentimental-Analysis-",
+    "full_name": "AryanPatill/Amazon-Review---Sentimental-Analysis-",
+    "owner": {
+      "login": "AryanPatill"
+    },
+    "html_url": "https://github.com/AryanPatill/Amazon-Review---Sentimental-Analysis-",
+    "description": "Sentiment Analysis Based on Amazon Reviews",
+    "fork": false,
+    "archived": false,
+    "homepage": null,
+    "language": "Jupyter Notebook",
+    "stargazers_count": 0,
+    "pushed_at": "2024-12-15T06:56:46Z",
+    "topics": [
+      "data-visualization",
+      "nlp-machine-learning",
+      "python",
+      "regression-models",
+      "sentiment-analysis"
+    ]
+  },
+  {
+    "id": null,
+    "name": "Twitter-Sentiment-Analysis",
+    "full_name": "AryanPatill/Twitter-Sentiment-Analysis",
+    "owner": {
+      "login": "AryanPatill"
+    },
+    "html_url": "https://github.com/AryanPatill/Twitter-Sentiment-Analysis",
+    "description": "Sentiment Analysis Using Dataset (Twitter)",
+    "fork": false,
+    "archived": false,
+    "homepage": null,
+    "language": "Jupyter Notebook",
+    "stargazers_count": 0,
+    "pushed_at": "2024-12-15T05:57:26Z",
+    "topics": [
+      "ai",
+      "clasificacion",
+      "dataset",
+      "machine-learning",
+      "sentiment-analysis"
+    ]
+  }
+]
